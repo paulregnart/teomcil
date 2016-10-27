@@ -1,0 +1,21 @@
+windows:
+  - name: Compliance
+    root: ~/
+    layout : tiled
+    panes:
+      - commands:
+        - cd dev/sageone_accounts_production/host_app
+        - bundle exec rails s -b 0.0.0.0 -p 3034
+        name: 'Final Accounts'
+      - commands:
+        - cd dev/sageone_accounts_production
+        - RAILS_ENV=development ci/run_resque.rb start
+        name: 'Final Accounts DJ'
+      - commands:
+        - cd dev/sageone_corp_tax_uk/host_app
+        - bundle exec rails s -p 3036
+        name: 'Corp Tax'
+      - commands:
+        - cd dev/sageone_corp_tax_uk/host_app
+        - bundle exec rake jobs:work
+        name: 'Corp Tax DJ'

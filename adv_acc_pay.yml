@@ -1,0 +1,29 @@
+windows:
+  - name: adv_acc_pay
+    root: ~/
+    layout : tiled
+    panes:
+      - commands:
+        - cd dev/sage_one_advanced/host_app
+        - bundle exec thin start -p 3032 --threaded
+        name: 'Advanced'
+      - commands:
+        - cd dev/sage_one_advanced/host_app
+        - bundle exec rake jobs:work
+        name: 'Advanced DJ'
+      - commands:
+        - cd dev/sage_one_accounts_uk/host_app
+        - bundle exec rails s
+        name: 'Accounts'
+      - commands:
+        - cd dev/sage_one_accounts_uk/host_app
+        - bundle exec rake jobs:work
+        name: 'Accounts DJ'
+      - commands:
+        - cd dev/sage_one_payroll_ukie/host_app
+        - bundle exec rails s -p 3031
+        name: 'Payroll'
+      - commands:
+        - cd dev/sage_one_payroll_ukie/host_app
+        - bundle exec rake jobs:work
+        name: 'Payroll DJ'

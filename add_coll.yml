@@ -1,0 +1,21 @@
+windows:
+  - name: collab_addons
+    root: ~/
+    layout : tiled
+    panes:
+      - commands:
+        - cd dev/sage_one_addons_uk/host_app
+        - bundle exec rails s -p 3050
+        name: 'Addons'
+      - commands:
+        - cd dev/sage_one_addons_uk/host_app
+        - bundle exec rake jobs:work
+        name: 'Addons DJ'
+      - commands:
+        - cd dev/chorizo/host_app
+        - bundle exec rails s -p 3033
+        name: 'Collaborate'
+      - commands:
+        - cd dev/chorizo/host_app
+        - bundle exec rake jobs:work
+        name: 'Collaborate DJ'

@@ -1,0 +1,33 @@
+windows:
+  - name: MSO_NAE
+    root: ~/
+    layout : tiled
+    panes:
+      - commands:
+        - cd dev/mysageone_uk/host_app
+        - bundle exec thin start -p 3000 --threaded
+        name: 'MSO'
+      - commands:
+        - cd dev/mysageone_uk/host_app
+        - bundle exec rake jobs:work
+        name: 'MSO DJ'
+      - commands:
+        - cd dev/new_accountant_edition/host_app
+        - bundle exec thin start -p 3035 --threaded
+        name: 'NAE'
+      - commands:
+        - cd dev/new_accountant_edition/host_app
+        - bundle exec rake jobs:work
+        name: 'NAE DJ'
+  - name: MSO_NAE_UI
+    root: ~/
+    layout : tiled
+    panes:
+      - commands:
+        - cd dev/mysageone_uk/ui
+        - gulp
+        name: 'MSO_UI'
+      - commands:
+        - cd dev/new_accountant_edition/ui
+        - gulp
+        name: 'NAE_UI'  
